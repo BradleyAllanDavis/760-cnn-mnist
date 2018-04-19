@@ -127,8 +127,8 @@ def main(unused_argv):
 
     # Create the Estimator
     mnist_classifier = tf.estimator.Estimator(
-        model_fn=cnn_model_fn, model_dir="/home/bradley/mnist_convnet_model")
-        # model_fn=cnn_model_fn, model_dir="/tmp/mnist_convnet_model")
+        model_fn=cnn_model_fn, model_dir="/tmp/mnist_convnet_model")
+        # model_fn=cnn_model_fn, model_dir="/home/bradley/mnist_convnet_model")
 
     # Set up logging for predictions
     # Log the values in the "Softmax" tensor with label "probabilities"
