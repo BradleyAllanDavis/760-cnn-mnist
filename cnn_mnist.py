@@ -160,6 +160,19 @@ def main(unused_argv):
 
 
 if __name__ == "__main__":
+  config = tf.ConfigProto()
+  config.gpu_options.allow_growth = True
+  session = tf.Session(config=config)
+
   # with tf.device("/cpu:0"):
   with tf.device("/device:GPU:0"):
     tf.app.run()
+
+
+
+
+
+
+
+
+
