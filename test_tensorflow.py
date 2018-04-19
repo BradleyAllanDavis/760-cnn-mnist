@@ -1,4 +1,4 @@
-import tensorflow-gpu as tf
+import tensorflow as tf
 
 # with tf.device("/device:GPU:0"):
 
