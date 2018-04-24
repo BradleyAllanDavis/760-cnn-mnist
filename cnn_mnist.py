@@ -18,7 +18,10 @@ from __future__ import division
 from __future__ import print_function
 
 import numpy as np
+import random
 import tensorflow as tf
+
+# from tensorflow.examples.tutorials.mnist import input_data
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
@@ -116,12 +119,29 @@ def cnn_model_fn(features, labels, mode):
 
 
 def main(unused_argv):
+  ###################################################################################
+  # MNIST
   # Load training and eval data
   mnist = tf.contrib.learn.datasets.load_dataset("mnist")
   train_data = mnist.train.images  # Returns np.array
+
+  # Take random sample at X percentage
+  # train_data = np.random.choice(train_data, len(train_data) * 0.5, replace=False)
+
   train_labels = np.asarray(mnist.train.labels, dtype=np.int32)
   eval_data = mnist.test.images  # Returns np.array
   eval_labels = np.asarray(mnist.test.labels, dtype=np.int32)
+  ###################################################################################
+
+
+  ###################################################################################
+  # Other dataset
+  # mnist = tf.contrib.learn.datasets.load_dataset("mnist")
+  # train_data = mnist.train.images  # Returns np.array
+  # train_labels = np.asarray(mnist.train.labels, dtype=np.int32)
+  # eval_data = mnist.test.images  # Returns np.array
+  # eval_labels = np.asarray(mnist.test.labels, dtype=np.int32)
+  ###################################################################################
 
   # Create the Estimator
   mnist_classifier = tf.estimator.Estimator(
